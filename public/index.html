@@ -185,7 +185,7 @@
         StartStop();
             $.ajax({
                 type: "GET",
-                url: `api/sudoku/generate?query[select]=${select}`,
+                url: `api/sudoku/generate?select=${select}`,
                 success: (data) => {
                     console.log(data);
                     const sudoku = data.sudoku.split(',');

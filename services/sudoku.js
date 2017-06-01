@@ -1,8 +1,6 @@
 module.exports = (sudokuRepository, errors) => {
     const _ = require('underscore');
 
-
-
     //
     // function findLast() {
     //     return new Promise((resolve, reject) => {
@@ -22,8 +20,6 @@ module.exports = (sudokuRepository, errors) => {
     function findSud(sud) {
         return sudokuRepository.findAll({where:{id:sud}, attributes: ['sudoku'] })
     }
-
-
 
     function makepuzzle(board) {
         const puzzle  = [];

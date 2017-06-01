@@ -97,13 +97,21 @@ describe('Сервис recorde', () => {
         });
     });
 
-    describe('Функция findAll', () => {
+    describe('Функция findOne', () => {
         it('Отдавать объект', () => {
-            sandbox.stub(recordRepository, 'findAll').returns(Promise.resolve(null));
-            const recorde = recordService.findAll({where: {user_id: 1}});
-            recorde.should.be.an.Object();
+            const recorde = recordService.isExisting('00:03:04');
+            return recorde.then(data => data.should.be.equal(true));
         });
     });
+
+    describe('Функция rand', () => {
+        it.only('Отдавать объект', () => {
+            const recorde = recordService.rand();
+            recorde.should.be.equal(true);
+        });
+    });
+
+
 });
 
 const sudoku = '[null,null,2,null,5,null,null,7,8,1,null,null,8,null,null,null,null,null,8,5,null,0,null,null,3,null,null,null,null,7,null,2,null,null,null,null,4,null,null,null,null,7,null,null,null,0,null,1,null,null,null,null,5,null,null,3,null,null,0,6,null,null,2,null,null,null,null,null,null,null,4,7,null,null,4,null,null,null,null,null,null]';
@@ -149,6 +157,22 @@ describe('Сервис sudoku', () => {
         });
     });
 
+    describe('Функция findAll', () => {
+        it('Отдавать объект', () => {
+            sandbox.stub(recordRepository, 'findAll').returns(Promise.resolve(null));
+            const recorde = recordService.findAll({where: {user_id: 1}});
+            recorde.should.be.an.Object();
+        });
+    });
+
+    describe('Функция findAll', () => {
+        it('Отдавать объект', () => {
+            sandbox.stub(recordRepository, 'findAll').returns(Promise.resolve(null));
+            const recorde = recordService.findAll({where: {user_id: 1}});
+            recorde.should.be.an.Object();
+        });
+    });
+
     describe('Функция makepuzzle', () => {
         it('Отдавать объект', () => {
             sandbox.stub(sudokuRepository, 'create').returns(Promise.resolve(null));
@@ -172,5 +196,19 @@ describe('Сервис sudoku', () => {
             ratepuzzle.should.be.an.Number();
         });
     });
-
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

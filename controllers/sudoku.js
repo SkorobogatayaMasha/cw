@@ -85,9 +85,12 @@ module.exports = (sudokuService, cacheService, config, promiseHandler) => {
                     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
                     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
+
+
                     const puzzle = sudokuService.makepuzzle();
                     const solution = sudokuService.solvepuzzle(puzzle);
-                    const difficulty = sudokuService.ratepuzzle(puzzle, req.query.query.select);
+                    const difficulty = sudokuService.ratepuzzle(puzzle, req.query.select);
+                    //req.query.select
 
                     return sudokuService.createOne({
                         user_id: data.__user_id,
